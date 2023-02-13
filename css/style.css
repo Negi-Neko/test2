@@ -1,0 +1,279 @@
+@charset "UTF-8";
+
+/*-------------------------------------------
+　全体に関わるレイアウト設定
+-------------------------------------------*/
+
+html{
+  font-size:100%;
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  font-size:0.9rem;
+  margin:0;
+}
+
+/*-------------------------------------------
+　wrapper設定
+-------------------------------------------*/
+.wrapper{
+  max-width:960px;
+  margin:0 auto 100px auto;
+  padding:0 4%;
+}
+
+/*-------------------------------------------
+　header のレイアウト設定
+-------------------------------------------*/
+
+#header{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding:0 10px 0 10px;
+  margin:100px auto 100px auto;
+  /*wrapperのmargin設定を上書き*/
+}
+
+.title-Logo{
+  width:150px;
+  padding:10px 0;
+  margin:0;
+}
+
+.title-Logo img{
+  max-width:100%;
+}
+
+#header ul{
+  display:flex;
+  align-items: center;
+  max-height:100%;
+  list-style:none;
+  padding:0;
+    /*ここでpaddingを0にしておかないとスマホ表示の際に謎のpaddingが出現する。なぜだ・・・*/
+}
+
+#header li{
+  margin-left:20px;
+}
+
+#header li img{
+  display:block;
+  width:20px;
+}
+/*画像はインライン要素なので上下中央揃えにならなかった。そこで画像をblock要素にすることで適用させた*/
+
+#header a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+  color:black;
+}
+
+/*-------------------------------------------
+　mainのレイアウト設定
+-------------------------------------------*/
+
+.topImg img{
+  width:100%;
+  height:430px;
+  object-fit:cover;
+  margin-bottom:40px;
+}
+
+/*-------------------------------------------
+　sectionごとのレイアウト設定
+-------------------------------------------*/
+.panelHeader{
+  text-align: center;
+  margin-bottom: 60px;
+}
+.textHeader{
+  font-size:2.5rem;
+  letter-spacing:0.1em;
+}
+/*letter-spacingで文字間隔を開ける*/
+
+.flexbox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.flexitem{
+  width: 31%;
+  margin-bottom: 30px;
+}
+
+.flexitem img{
+  max-width:100%;
+}
+/*html側でflexitem内のimgタグを閉じ忘れていたがために、画像が縦に規則的に小さくなっていく不具合に苦しめられた*/
+
+
+#news div{
+	display:flex;
+	justify-content:flex-start;
+  border-top:1px solid #ccc;
+}
+#news div:last-of-type{
+  border-bottom:1px solid #ccc;
+}
+/*last-childだと失敗する*/
+
+#news div dt{
+  width:120px;
+  padding:15px;
+}
+#news div dd{
+  width:80%;
+	margin:0;
+  padding:15px;
+}
+
+/*入力フォーム*/
+
+
+/*dlをflexコンテナにした場合*/
+
+#contact dl{
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+  margin-bottom:10px;
+}
+
+#contact dt{
+  width: 10%;
+  margin-bottom:10px;
+}
+
+#contact dd{
+  width:80%;
+  margin-bottom:10px;
+}
+
+#contact dd input,
+#contact dd textarea{
+  width:100%;
+  padding:10px;
+  border: solid 1px #ccc;
+}
+
+#contact textarea{
+  height:60px;
+  width:80%;
+  padding:10px;
+}
+
+
+/*dlをflexコンテナにしない場合。一旦無効化
+
+
+form dl dt {
+	width: 120px;
+	float: left;
+}
+form dd{
+  margin-left:120px;
+}
+form dd input{
+  width:80%;
+  height:20px;
+  padding:10px;
+  border: solid 1px #ccc;
+}
+textarea{
+  width:80%;
+  padding:10px;
+  border-color: #ccc;
+}
+*/
+
+.bottun{
+  display:flex;
+  justify-content: center;
+}
+
+
+.bottun input {
+  width:200px;
+  height:50px;
+  display       : inline-block;
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+}
+
+.bottun input:hover{
+  box-shadow: none;/* カーソル時の影消去 */
+  color: #000066;
+  background: #ffffff;
+}
+
+
+
+/*-------------------------------------------
+　footerのレイアウト設定
+-------------------------------------------*/
+
+#footer{
+  text-align: center;
+  background-color: black;
+  color:#ffffff;
+  font-size:0.5rem;
+  padding:10px 20px;
+}
+
+#footer p{
+  margin:0;
+}
+/*paddingを活用することで上下中央に文字を配置できることに気づいた*/
+ 
+
+/*-------------------------------------------
+　スマートフォンのレイアウト設定
+-------------------------------------------*/
+
+@media screen and (max-width: 600px) {
+
+  #header{
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom:0;
+  }
+
+    /*display:blockにして画像6枚を縦並びに*/
+    flexbox{
+      display:block;
+      margin:0;
+      padding:0 4%;
+    }
+
+    .flexitem{
+      text-align: center;
+      width:100%;
+      margin:0;
+    }
+
+    .flexitem img{
+      max-width:100%;
+    }
+
+
+  #contact dl{
+    flex-flow: column;
+  }
+
+  #contact input{
+    align-items:flex-start;
+    /*flex-startにしてもスマホ表示になった際にddがdtと同じ左端に寄ってくれない*/
+  }
+
+
+}
