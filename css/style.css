@@ -18,7 +18,7 @@ body{
 -------------------------------------------*/
 .wrapper{
   max-width:960px;
-  margin:0 auto 100px auto;
+  margin:100px auto 100px auto;
   padding:0 4%;
 }
 
@@ -30,8 +30,6 @@ body{
   display:flex;
   justify-content: space-between;
   align-items:center;
-  padding:0 10px 0 10px;
-  margin:100px auto 100px auto;
   /*wrapperのmargin設定を上書き*/
 }
 
@@ -135,10 +133,9 @@ body{
 
 /*dlをflexコンテナにした場合*/
 
-#contact dl{
+#contact dl.contact{
   display: flex;
   flex-wrap: wrap;
-  width:100%;
   margin-bottom:10px;
 }
 
@@ -157,11 +154,13 @@ body{
   width:100%;
   padding:10px;
   border: solid 1px #ccc;
+
+  /*スマホ表示でdtとddが上手く縦並びにならないのは、この辺の設定に問題がある？*/
 }
 
 #contact textarea{
-  height:60px;
-  width:80%;
+  height:150px;
+  width:100%;
   padding:10px;
 }
 
@@ -189,16 +188,15 @@ textarea{
 }
 */
 
-.bottun{
+.button{
   display:flex;
   justify-content: center;
 }
 
 
-.bottun input {
+.button input {
   width:200px;
   height:50px;
-  display       : inline-block;
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 12px 12px;   /* 余白       */
@@ -209,7 +207,7 @@ textarea{
   border        : 2px solid #000066;    /* 枠の指定 */
 }
 
-.bottun input:hover{
+.button input:hover{
   box-shadow: none;/* カーソル時の影消去 */
   color: #000066;
   background: #ffffff;
@@ -268,12 +266,17 @@ textarea{
 
   #contact dl{
     flex-flow: column;
+        /*メディアクエリで「dl」に「flex-flow: column;」を指定することで、スマホでは「dt dd」が縦並びになるはずだが・・・*/
   }
 
   #contact input{
     align-items:flex-start;
     /*flex-startにしてもスマホ表示になった際にddがdtと同じ左端に寄ってくれない*/
   }
+  #contact dl.contact{
+    align-items: baseline;
+  /*この設定を加えたことで、スマホ表示時にdtとddが縦並びに揃った*/
+  }
 
+  }
 
-}
