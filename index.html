@@ -101,15 +101,15 @@
             <h2 class="panelHeader"><span>Contact</span></h2>
 
             <form method="post" action="example.cgi">
-                <dl>
+                <dl class="contact">      <!--chatGPTによると「<dl>要素のクラス名がCSSと一致していません。HTMLのクラス名を「contact」に変更しましょう」と出た -->
                     <dt>NAME</dt>
-                    <dd><input type="text"></dd>
+                    <dd><input type="text" id="name" name="your-name"></dd>
                     <dt>E-mail</dt>
-                    <dd><input type="email"></dd>
+                    <dd><input type="email" id="email" name="your-email"></dd>
                     <dt>MESSAGE</dt>
-                    <dd><textarea name="other" cols="50" rows="6"></textarea></dd>
+                    <dd><textarea id="message" name="your-message"></textarea></dd>
                 </dl>
-                <div class="bottun">
+                <div class="button">
                     <input type="submit" value="送信">
                 </div>
             </form>
