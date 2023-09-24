@@ -164,30 +164,6 @@ body{
   padding:10px;
 }
 
-
-/*dlをflexコンテナにしない場合。一旦無効化
-
-
-form dl dt {
-	width: 120px;
-	float: left;
-}
-form dd{
-  margin-left:120px;
-}
-form dd input{
-  width:80%;
-  height:20px;
-  padding:10px;
-  border: solid 1px #ccc;
-}
-textarea{
-  width:80%;
-  padding:10px;
-  border-color: #ccc;
-}
-*/
-
 .button{
   display:flex;
   justify-content: center;
@@ -263,6 +239,11 @@ textarea{
       max-width:100%;
     }
 
+    #contact dt{
+      white-space: nowrap;
+      /*HTMLコード内に記述した文章は何も指定していない場合、要素の端や画面の端で自動改行されてしまう。この改行の有無を操作する場合は「white-space」プロパティを用いる。
+      自動改行されないと、要素より長い文章ははみ出してしまう。そこでoverflowプロパティを用いてスクロール表示させたり非表示にさせる。*/
+    }
 
   #contact dl{
     flex-flow: column;
